@@ -39,8 +39,7 @@
 		t_theSurrogate
 	</sql>
 
-	<resultMap type="ChildrenesClassStudnet"
-		id="studnetByClassIdMap">
+	<resultMap type="ChildrenesClassStudnet" id="studnetByClassIdMap">
 		<id column="ccs_classesStudentId" property="classesStudentId" />
 		<result column="ccs_studentName" property="studentName" />
 		<result column="ccs_headmaster" property="headmaster" />
@@ -49,6 +48,7 @@
 		<result column="ccs_studentId" property="studentId" />
 		<result column="ccs_state" property="state" />
 		<result column="ccs_schoolTime" property="schoolTime" />
+		
 		<association property="student" javaType="Student">
 			<id column="t_studentId" property="studentId" />
 			<result column="t_endTime" property="endTime" />
@@ -69,7 +69,9 @@
 			<result column="t_studentSex" property="studentSex" />
 			<result column="t_telephone" property="telephone" />
 			<result column="t_theSurrogate" property="theSurrogate" />
+			<result column="st_teacherName" property="teacherName"/>
 		</association>
+		
 	</resultMap>
 
 	<insert id="insertChildrenesClassStudnet"
@@ -93,12 +95,13 @@
 	<select id="findChildrenesClassStudnetByClassId"
 		parameterType="java.lang.Integer" resultMap="studnetByClassIdMap">
 		select
-		<include refid="childrenesClassStudnetCol" />
-		from childrenesclassstudnet ccs,student t
+		<include refid="childrenesClassStudnetCol" />,st.teacherName st_teacherName
+		from childrenesclassstudnet ccs,student t,studenttool st
 		<where>
+			and t.studentId = st.studentId and
 			ccs.studentId = t.studentId and ccs.state != 2
 			<if test="classId !=null and classId!=''">
-				and classId = #{classId}
+				and st.classId = #{classId}
 			</if>
 		</where>
 	</select>

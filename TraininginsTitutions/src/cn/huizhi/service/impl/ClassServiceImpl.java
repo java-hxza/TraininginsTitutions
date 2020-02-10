@@ -78,6 +78,18 @@ public class ClassServiceImpl implements ClassService {
 	}
 
 	@Override
+	public List<Class> selectUnopenedClass(Integer studentId) {
+		return classMapper.selectUnopenedClass(studentId);
+	}
+
+	@Override
+	public List<Class> selectNotUnopenedClass(String classId,Integer schoolId) {
+		// TODO Auto-generated method stub
+		return classMapper.selectNotUnopenedClass(classId,schoolId);
+	}
+
+	
+
 	public Integer delClass(String classId) {
 		// TODO Auto-generated method stub
 		return classMapper.delClass(classId);

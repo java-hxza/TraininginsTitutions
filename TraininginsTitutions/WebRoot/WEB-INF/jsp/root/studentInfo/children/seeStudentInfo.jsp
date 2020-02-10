@@ -245,6 +245,9 @@
 															class="text-body font-weight-semibold">${children.schoolTime}</a>
 														</td>
 														<td class="table-user"><a href="javascript:void(0);"
+															class="text-body font-weight-semibold">${children.student.teacherName}</a>
+														</td>
+														<td class="table-user"><a href="javascript:void(0);"
 															class="text-body font-weight-semibold">${children.student.remarks }</a>
 														</td>
 													</tr>
