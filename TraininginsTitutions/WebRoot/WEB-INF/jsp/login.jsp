@@ -9,7 +9,7 @@
 <meta charset="UTF-8" />
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>login</title>
+<title>同心同慧教育集团</title>
 <link rel="stylesheet" type="text/css" href="${Path }/static/css/login/normalize.css" />
 <link rel="stylesheet" type="text/css" href="${Path }/static/css/login/demo.css" />
 <!--必要样式-->
