@@ -265,17 +265,17 @@
 		sn,s.studentBirth,o.feecateMoney ofms
 		FROM
 		`order` o
-		JOIN
+		left JOIN
 		student s ON
 		o.stuId=s.studentId
-		JOIN paymentmethod p ON
+		left JOIN paymentmethod p ON
 		o.paymentmethodId=p.paymentmethodId
-		JOIN class c ON o.classId=c.classId
-		JOIN school sc ON
+		left JOIN class c ON o.classId=c.classId
+		left JOIN school sc ON
 		o.schoolId=sc.schoolId
-		<where>
-			AND o.firstdate IS NOT NULL AND o.schoolId=#{schoolId}
-			<if test="studentName != ''">
+		<where>o.identification = 0
+			AND o.schoolId=#{schoolId}
+			<if test="studentName != '' and studentName!=null">
 				AND s.studentName LIKE CONCAT('%',#{studentName},'%')
 			</if>
 			<if test="classId != 0">
@@ -330,20 +330,19 @@
 		FROM
 		traininginstitutions.order
 		o
-		JOIN student s ON
+		left JOIN student s ON
 		o.stuId=s.studentId
-		JOIN
+		left JOIN
 		feecategory f
 		ON
 		o.feecateId=f.chargeTypeId
-		JOIN paymentmethod p ON
+		left JOIN paymentmethod p ON
 		o.paymentmethodId=p.paymentmethodId
-		JOIN class c ON o.classId=c.classId
+		left JOIN class c ON o.classId=c.classId
 		JOIN school sc ON
 		o.schoolId=sc.schoolId
 		<where>
-			AND o.identification = 0 AND o.addhour IS NULL AND o.firstdate IS
-			NULL AND o.schoolId=#{schoolId}
+			AND o.identification = 0  AND o.schoolId=#{schoolId}
 			<if test="studentName != null">
 				AND s.studentName LIKE CONCAT('%',#{studentName},'%')
 			</if>

@@ -410,7 +410,8 @@
 		<include refid="ArtStudentResverSchoolInfoCol" />
 		from reserveschool res, student st,traininginstitutions.order o
 		<where>
-			st.studentId = res.studentId and st.studentId = o.stuId and
+			o.stuId  = st.studentId
+			and  o.stuId = res.studentId and
 			o.identification = 0
 			<if test="map.schoolId != null and map.schoolId != ''">
 				and res.schoolId = #{map.schoolId}

@@ -124,7 +124,7 @@
 																class="mdi mdi-plus-circle mr-2"></i> 续费</a> <a
 																href="${Path }/ChargeHours2.html"
 																class="btn btn-danger mb-2"><i
-																class="mdi mdi-plus-circle mr-2"></i> 另开</a> <a
+																class="mdi mdi-plus-circle mr-2"></i> 新增收费项目</a> <a
 																href="javascript:void(0);"
 																class="btn btn-danger mb-2 del" onclick="updateOrder()"><i
 																class="mdi mdi-plus-circle mr-2"></i> 修改</a> <a

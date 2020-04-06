@@ -197,6 +197,7 @@
 		,ca.className FROM student t
 		JOIN ${table} c ON t.studentId=c.studentId
 		JOIN class ca ON c.classId=ca.classId WHERE ca.schoolId=${schoolId}
+		ORDER BY t.studentId desc
 	</select>
 
 	<resultMap type="Student" id="selectStudentUsedIntegrals">
@@ -409,7 +410,8 @@
 		<include refid="ArtStudentResverSchoolInfoCol" />
 		from reserveschool res, student st,traininginstitutions.order o
 		<where>
-			st.studentId = res.studentId and st.studentId = o.stuId and
+			o.stuId  = st.studentId
+			and  o.stuId = res.studentId and
 			o.identification = 0
 			<if test="map.schoolId != null and map.schoolId != ''">
 				and res.schoolId = #{map.schoolId}
